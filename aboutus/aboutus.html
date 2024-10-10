@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="../images/logo.png">
+  <title>Vilasha Creations</title>
+  <link rel="stylesheet" href="./aboutus.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <nav>
+      <ul>
+        <a href="../index.html">
+          <li><img class="logo" src="../images/logo.png"></li>
+        </a>
+        <li><a href="../index.html">Home</a></li> <!-- Change this based on the active page -->
+        <li><a href="./aboutus.html" class="active">About Us</a></li>
+        <li><a href="../services/services.html">Services</a></li>
+        <li><a href="../contactus/contactus.html">Contact Us</a></li>
+        <li><button class="quote-btn">Get a Quote</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="content-wrapper">
+      <!-- Left Side: Text Section -->
+      <div class="text-section">
+        <h1>About Us</h1>
+        <p>Every garment manufacturer will experience defects in end products.<br>If there are such defects, they will incur major setbacks financially<br>due to FOB losses. It is one of the main problems that is encountered<br>by the garment industrialists. We are specialists in providing solutions<br>to the color defects without compensating the quality of the product.</p>
+        <h3>OUR SERVICES</h3>
+        <p class="services-p">We can confidently give you solutions for the below problems which <br> are commonly faced in the color shading industry in garments:</p>
+        <ul class="hero-ul">
+          <li> - Color Shading</li>
+          <li> - Tone Changes</li>
+          <li> - Uneven shades</li>
+          <li> - Crease marks</li>
+          <li> - Remove the dye patches</li>
+          <li> - White spots</li>
+        </ul>
+      </div>
+    
+      <!-- Right Side: Image Section -->
+      <div class="image-section">
+        <div class="image-container">
+          <img src="../images/before.png" alt="Vilasha Creations">
+          <p>Before</p>
+        </div>
+        <div class="image-container">
+          <img src="../images/after.png" alt="Vilasha Creations">
+          <p>After</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="second">
+    <div class="second-wrapper">
+      <div class="video-section">
+        <video autoplay muted loop class="second-video">
+          <source src="../images/color-shading.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="text-area">
+        <h2 class="second-h2">OUR CAPACITY</h2>
+        <p class="second-p">We can color shade all types of garments. <br> We have a capacity of shading <b>300 garments</b> <br> per day and depending on the work, we have <br> the ability to increase the output.</p>
+        <h2 class="second-h2-2">OUR GOAL</h2>
+        <p class="second-p-2">To provide the best quality products to<br> all our customers in the<br> minimum lead time</p>
+      </div>
+    </div>
+  </section>  
+
+  <!-- Services Section -->
+  <section id="third">
+    <div class="third-wrapper">
+      <div class="text-third">
+        <h1 class="third-h1">HISTORY</h1>
+        <p class="third-p">With many years of experience in the field of the color world,<br>Nalin Nishantha was inspired to start his first repair plant in<br>Colombo, Sri Lanka back in 2010. <br><br> He was invited by many repair plants in Sri Lanka on color<br>shading repair assignments which he successfully completed,<br>won recognition and satisfied his clients to the maximum. <br><br> His great techniques and skills won him recognition and a great<br>deal of praise from his clients. </p>
+      </div>
+      <div class="image-third">
+        <img class="Nalin-Nishantha" src="../images/nalin-nishantha.jpg">
+        <p class="image-third-p">Nalin Nishantha</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Contact us at: vilashacreations@yahoo.com / 0777-373-004</p>
+    <p>&copy; 2024 Vilasha Creations. All rights reserved.</p>
+  </footer>
+  <!-- Modal for Get a Quote form -->
+  <div id="quoteForm" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Get a Quote</h2>
+      <form id="contact-form" class="contact-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="message">Request:</label>
+        <textarea id="message" name="message" required></textarea>
+
+        
+        <button class="submit-btn"type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    // Initialize EmailJS
+    // Initialize EmailJS with your user ID
+    emailjs.init("YRqPqyLoQOaSNrj7C"); // Replace with your actual EmailJS User ID
+
+    // Get the modal
+    var modal = document.getElementById("quoteForm");
+    var btn = document.querySelector(".quote-btn");
+    var span = document.getElementsByClassName("close")[0];
+
+    // Open modal when "Get a Quote" is clicked
+    btn.onclick = function() {
+      modal.style.display = "flex";
+    }
+
+    // Close modal when "x" is clicked
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // Close modal when clicking outside of it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    // Handle form submission and send data via EmailJS
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual values
+      emailjs.sendForm("service_mhecogd", "template_9vco5iv", this)
+        .then(function() {
+          alert('Your quote request has been sent!');
+          modal.style.display = "none"; // Close the modal on success
+        }, function(error) {
+          alert('Failed to send request. Please try again.');
+        });
+    });
+
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
+
+    window.addEventListener('scroll', function() {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+        if (scrollTop > lastScrollTop) {
+            // Scroll down - hide the header
+            header.style.top = "-75px";
+        } else {
+            // Scroll up - show the header
+            header.style.top = "0";
+        }
+        lastScrollTop = scrollTop;
+    });
+  </script>
+</body>
+</html>

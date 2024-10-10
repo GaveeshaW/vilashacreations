@@ -1,0 +1,511 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+  }
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    height: auto;
+    border-radius: 20px;
+    background-color: #d3d3d3;
+    max-width: 400px;
+  }
+  button.submit-btn{
+    border-radius: 20px;
+    height: 40px;
+    width: 60px;
+    padding: 8px;
+    background-color: #fff700;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  button.submit-btn:hover{
+    background-color: #ebe539;
+  }
+  input,
+  textarea {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  .contact-form{
+    display: flex;
+    flex-direction: column;
+  }
+  .contact-form label,
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form button {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    padding-top: 60px;
+  }
+  
+  nav a.active {
+    color: #1F86FF;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bolder;
+  }
+  
+  nav a.active::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #1F86FF;
+    left: 0;
+    bottom: -5px;
+  }
+  
+  /* Header Styling */
+  header {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    height: 75px;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: top 0.3s ease;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    position: relative;
+  }
+  
+  nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #1F86FF;
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s ease;
+  }
+  
+  nav a:hover::after {
+    width: 100%;
+  }  
+  
+  .quote-btn {
+    background-color: #32D96B;
+    border: none;
+    padding: 10px 15px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .quote-btn:hover {
+    background-color: #2eb059;
+  }
+  
+  #hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    color: #fff;
+    overflow: hidden;
+  }
+  
+  #hero h1, #hero p {
+    z-index: 1;
+  }  
+
+  .logo{
+    height: 100px;
+    width: 100px;
+  }
+  
+  #hero h1 {
+    font-size: 3rem;
+  }
+  
+  #hero p {
+    font-size: 1.5rem;
+  }
+  
+  /* About and Services Section */
+  section {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Footer Styling */
+  footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+  }
+
+/* Service Section Styling */
+#services {
+  padding: 50px;
+  background-color: white;
+}
+
+#services h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+#services h3 {
+  font-size: 50px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.service-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Two columns */
+  gap: 20px;
+  justify-items: left;
+  align-items: stretch;
+}
+
+.service-box {
+  border: 1px solid black;
+  padding: 20px;
+  text-align: left;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  height: 400px;
+  width: 400px;
+  margin-top: 50px;
+}
+
+.service-box span {
+  font-size: 50px; /* Adjust the size of the icons */
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.service-box h4 {
+  font-size: 25px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.service-box p {
+  font-size: 22px;
+  color: #333;
+  line-height: 1.5;
+}
+
+@media (max-width: 1299px) {
+  .service-container {
+    display: grid; /* Ensure the container uses grid layout */
+    grid-template-columns: repeat(2, 1fr); /* Create 2 equal columns */
+    gap: 1rem; /* Optional: Add some spacing between items */
+  }
+}
+
+@media (max-width: 884px) {
+  .service-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 366px) {
+  .service-box {
+    height: 100px;
+    width: 100px;
+  }
+}
+
+@media (max-width: 356px) {
+  .service-box {
+    height: 60px;
+    width: 60px;
+  }
+
+  #services h2 {
+    font-size: 1rem;
+  }
+  
+  #services h3 {
+    font-size: 20px;
+  }
+  
+  .service-box h4 {
+    font-size: 10px;
+  }
+  
+  .service-box p {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 462px) {
+  .service-box {
+    height: 300px;
+    width: 300px;
+  }
+
+  #services h2 {
+    font-size: 1.5rem;
+  }
+  
+  #services h3 {
+    font-size: 30px;
+  }
+
+  .shirt {
+    height: 30px;
+    width: 30px;
+  }
+  
+  .frock {
+    height: 30px;
+    width: 20px;
+  }
+  
+  .shorts {
+    height: 30px;
+    width: 30px;
+  }
+  
+  .skirt {
+    height: 15px;
+    width: 20px;
+  }
+  
+  .sock {
+    height: 30px;
+    width: 30px;
+  }
+  
+  .blouse {
+    height: 60px;
+    width: 60px;
+  } 
+  
+  .service-box h4 {
+    font-size: 15px;
+  }
+  
+  .service-box p {
+    font-size: 12px;
+  }
+}
+
+.shirt {
+  height: 50px;
+  width: 50px;
+}
+
+.frock {
+  height: 50px;
+  width: 50px;
+}
+
+.shorts {
+  height: 50px;
+  width: 50px;
+}
+
+.skirt {
+  height: 35px;
+  width: 40px;
+}
+
+.sock {
+  height: 50px;
+  width: 50px;
+}
+
+.blouse {
+  height: 80px;
+  width: 80px;
+}
+
+@media(max-width: 490px){
+  nav a {
+    font-size: 0.6rem;
+  }
+
+  nav a.active {
+    border-radius: 5px;
+    font-size: 0.7rem;
+    font-weight: bolder;
+  }
+
+  .quote-btn {
+    font-size: 0.5rem;
+    height: 20px;
+    width: 80px;
+  }
+}
+
+@media(max-width: 574px){
+  nav a {
+    font-size: 0.6rem;
+  }
+
+  nav a.active {
+    border-radius: 5px;
+    font-size: 0.7rem;
+    font-weight: bolder;
+  }
+
+  .quote-btn {
+    font-size: 0.5rem;
+    height: 20px;
+    width: 80px;
+  }
+}
+
+@media(max-width: 441px){
+  nav a {
+    font-size: 0.4rem;
+  }
+
+  nav a.active {
+    border-radius: 5px;
+    font-size: 0.5rem;
+    font-weight: bolder;
+  }
+
+  .quote-btn {
+    font-size: 0.4rem;
+    height: 20px;
+    width: 70px;
+  }
+}
+
+@media(max-width: 384px){
+  nav a {
+    font-size: 0.4rem;
+  }
+
+  nav a.active {
+    border-radius: 5px;
+    font-size: 0.rem;
+    font-weight: bolder;
+  }
+
+  .quote-btn {
+    font-size: 0.4rem;
+    height: 10px;
+    width: 65px;
+  }
+
+  .logo{
+    height: 70px;
+    width: 70px;
+  }
+}
+
+@media(max-width: 345px){
+  nav a {
+    font-size: 0.35rem;
+  }
+
+  nav a.active {
+    border-radius: 5px;
+    font-size: 0.4rem;
+    font-weight: bolder;
+  }
+
+  .quote-btn {
+    font-size: 0.35rem;
+    height: auto;
+    width: auto;
+  }
+
+  .logo{
+    height: 45px;
+    width: 45px;
+  }
+}
+
+@media(max-width: 300px){
+  nav a {
+    font-size: 0.3rem;
+  }
+
+  nav a.active {
+    font-size: 0.35rem;
+    font-weight: bolder;
+  }
+
+  .quote-btn {
+    font-size: 0.3rem;
+    height: auto;
+    width: auto;
+  }
+
+  .logo{
+    height: 35px;
+    width: 35px;
+  }
+}

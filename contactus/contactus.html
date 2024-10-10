@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="../images/logo.png">
+  <title>Vilasha Creations</title>
+  <link rel="stylesheet" href="./contactus.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <nav>
+      <ul>
+        <a href="../index.html">
+          <li><img class="logo" src="../images/logo.png"></li>
+        </a>
+        <li><a href="../index.html">Home</a></li> <!-- Change this based on the active page -->
+        <li><a href="../aboutus/aboutus.html">About Us</a></li>
+        <li><a href="../services/services.html">Services</a></li>
+        <li><a href="./contactus.html" class="active">Contact Us</a></li>
+        <li><button class="quote-btn">Get a Quote</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="form-wrapper"> <!--this wraps the name, email address, message and send button all together so that all will be same size and at the same place-->
+      <div class="form-container"> <!--this is the form container-->
+          <h2 class="contact-me-h2">Contact Us</h2>
+          <form id="form" action="/send" method="POST"> <!--this is the start of the form element-->
+              <label for="name">Name: </label>
+              <input type="text" id="name" placeholder="Enter your name" name="name" required> <!--its  a text box-->
+
+              <label for="email">Email Address: </label>
+              <input type="email" id="contactEmail" name="email" placeholder="Enter your email address" required>
+
+              <label for="message">Message: </label>
+              <textarea name="message" id="message" rows="8" placeholder="Enter your message" required></textarea> <!--its a textarea-->
+
+              <button class="submit" type="submit">Send</button> <!--button to send the response-->
+          </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="second">
+    <div class="wrapper"> <!--this wraps the name, email address, message and send button all together so that all will be same size and at the same place-->
+      <div class="container">
+        <h3 class="contactus-h3">CONTACT US</h3>
+        <p class="forany">For any inquiries or questions contact us:</p>
+        <div class="block">
+          <div class="address">
+            <p class="heading">ADDRESS</p>
+            <p class="description">No. 50, Apeksha Hospital Road, <br>Maharagama</p>
+          </div>
+          <div class="officehours">
+            <p class="heading">ADDRESS</p>
+            <p class="description">Monday - Saturday<br>8AM - 5PM</p>
+          </div>
+          <div class="officehours">
+            <p class="heading">EMAIL</p>
+            <p class="description">vilashacreations@yahoo.com</p>
+          </div>
+          <div class="officehours">
+            <p class="heading">PHONE</p>
+            <p class="description">0777-373-004</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Contact us at: Contact us at: vilashacreations@yahoo.com / 0777-373-004</p>
+    <p>&copy; 2024 Vilasha Creations. All rights reserved.</p>
+  </footer>
+  <!-- Modal for Get a Quote form -->
+  <div id="quoteForm" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Get a Quote</h2>
+      <form id="contact-form" class="contact-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Request:</label>
+        <textarea id="message" name="message" required></textarea>
+        
+        <button class="submit-btn"type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    // Initialize EmailJS
+    // Initialize EmailJS with your user ID
+    emailjs.init("YRqPqyLoQOaSNrj7C"); // Replace with your actual EmailJS User ID
+
+    // Get the modal
+    var modal = document.getElementById("quoteForm");
+    var btn = document.querySelector(".quote-btn");
+    var span = document.getElementsByClassName("close")[0];
+
+    // Open modal when "Get a Quote" is clicked
+    btn.onclick = function() {
+      modal.style.display = "flex";
+    }
+
+    // Close modal when "x" is clicked
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // Close modal when clicking outside of it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    // Handle form submission and send data via EmailJS
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual values
+      emailjs.sendForm("service_mhecogd", "template_9vco5iv", this)
+        .then(function() {
+          alert('Your quote request has been sent!');
+          modal.style.display = "none"; // Close the modal on success
+        }, function(error) {
+          alert('Failed to send request. Please try again.');
+        });
+    });
+
+    document.getElementById('form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      emailjs.sendForm("service_mhecogd", "template_9vco5iv", this)
+        .then(function() {
+          alert('Your message has been sent!');
+          document.getElementById('form').reset();
+        }, function(error) {
+          alert('Failed to send message. Please try again.');
+        });
+    });
+
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
+
+    window.addEventListener('scroll', function() {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+        if (scrollTop > lastScrollTop) {
+            // Scroll down - hide the header
+            header.style.top = "-75px";
+        } else {
+            // Scroll up - show the header
+            header.style.top = "0";
+        }
+        lastScrollTop = scrollTop;
+    });
+  </script>
+</body>
+</html>

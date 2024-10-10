@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="./images/logo.png">
+  <title>Vilasha Creations</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header id="top">
+    <nav>
+      <ul>
+        <a href="./index.html">
+          <li><img class="logo" src="./images/logo.png"></li>
+        </a>
+        <li><a href="./index.html" class="active">Home</a></li>
+        <li><a href="./aboutus/aboutus.html">About Us</a></li>
+        <li><a href="./services/services.html">Services</a></li>
+        <li><a href="./contactus/contactus.html">Contact Us</a></li>
+        <li><button class="quote-btn">Get a Quote</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <!-- Hero Section -->
+  <section id="hero" class="parallax-hero">
+    <video autoplay muted loop id="hero-video">
+      <source src="images/main-video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <h1>We do what you want to do</h1>
+    <p>Experienced and reliable professionals since 2010</p>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="homeabout">
+    <h1 class="ourvision-h1">Our Vision</h1>
+    <p class="ourvision-p">"To be the brilliant solution provider to the colour shading industry"</p>
+    <h1 class="ourmission-h1">Our Mission</h1>
+    <p class="ourmission-p">Providing our expertise to find solution to the color shading without <br> compensating the quality of the product and assisting the industrialists <br> to overcome the challenges encountered in the color world.</p>
+  </section>
+
+  <!-- Services Section -->
+  <section id="who-we-are" class="parallax-who-we-are">
+    <div class="whoweare-content">
+      <h1 class="whoweare-h1">Who We Are</h1>
+      <p class="whoweare-p">Our skilled team ensures consistent color accuracy, removing <br> crease marks and white spots while maintaining the highest <br> quality standards. Trusted by industry leaders, we pride <br> ourselves on delivering flawless results with every project.</p>
+      <a href="./aboutus/aboutus.html">
+        <button class="whoweare-button">Read more</button>
+      </a>
+      <div class="three-sections">
+        <div class="first-section"><p class="num-first"><b id="inProgress">25+ </b><br> In Progress Projects</p></div>
+        <div class="second-section"><p class="num-second"><b id="completedProjects">3000+ </b><br> Projects Completed</p></div>
+        <div class="third-section"><p class="num-third"><b id="businessPartners">30+ </b><br> Business Partners</p></div>
+      </div>
+    </div>
+    <img src="images/vilasha1.jpg" alt="Vilasha Creations" class="image-whoweare">
+  </section>  
+
+  <section id="our-services">
+    <div class="services-content">
+      <div class="services-text">
+        <h1>Our Services</h1>
+        <p>We offer a range of services to meet all types of needs.</p>
+        <a href="./services/services.html">
+          <button>All Services</button>
+        </a>
+      </div>
+      <div class="services-grid">
+        <div class="service-item">
+          <h3>Color shading</h3>
+          <p>We use raw materials to change the colors which are different between panels in the garments. We can proudly say that we achieve 99.9% accuracy when it comes to this service.</p>
+        </div>
+        <div class="service-item">
+          <h3>Tone changes</h3>
+          <p>We can change the tones between panels in garments without compensating the quality of the product. Contact us for more details and we are confident that you can do a good job for you!</p>
+        </div>
+        <div class="service-item">
+          <h3>Uneven shades</h3>
+          <p>With a focus on detail, we meticulously restore uniformity in shades accross all panels in the garment. Clients can trust in our dedicationn to delivering flawlessly consistent garments.</p>
+        </div>
+        <div class="service-item">
+          <h3>Crease marks</h3>
+          <p>We utilize advanced techniques to eliminate crease marks from garments, ensuring a seamless finish across all panels. Our commitment to quality ensures consistently flawless results.</p>
+        </div>
+      </div>
+    </div>
+  </section>  
+
+  <!-- Footer -->
+  <footer>
+    <p>Contact us at: vilashacreations@yahoo.com / 0777-373-004</p>
+    <p>&copy; 2024 Vilasha Creations. All rights reserved.</p>
+  </footer>
+
+  <!-- Modal for Get a Quote form -->
+  <div id="quoteForm" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Get a Quote</h2>
+      <form id="contact-form" class="contact-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Request:</label>
+        <textarea id="message" name="message" required></textarea>
+        
+        <button class="submit-btn"type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    // Initialize EmailJS
+    // Initialize EmailJS with your user ID
+    emailjs.init("YRqPqyLoQOaSNrj7C"); // Replace with your actual EmailJS User ID
+
+    // Get the modal
+    var modal = document.getElementById("quoteForm");
+    var btn = document.querySelector(".quote-btn");
+    var span = document.getElementsByClassName("close")[0];
+
+    // Open modal when "Get a Quote" is clicked
+    btn.onclick = function() {
+      modal.style.display = "flex";
+    }
+
+    // Close modal when "x" is clicked
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // Close modal when clicking outside of it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    // Handle form submission and send data via EmailJS
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual values
+      emailjs.sendForm("service_mhecogd", "template_9vco5iv", this)
+        .then(function() {
+          alert('Your quote request has been sent!');
+          modal.style.display = "none"; // Close the modal on success
+        }, function(error) {
+          alert('Failed to send request. Please try again.');
+        });
+    });
+
+
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
+
+    window.addEventListener('scroll', function() {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+        if (scrollTop > lastScrollTop) {
+            // Scroll down - hide the header
+            header.style.top = "-75px";
+        } else {
+            // Scroll up - show the header
+            header.style.top = "0";
+        }
+        lastScrollTop = scrollTop;
+    });
+
+    function animateNumber(elementId, start, end, duration) {
+      let range = end - start;
+      let current = start;
+      let increment = end > start ? 1 : -1;
+      let stepTime = Math.abs(Math.floor(duration / range));
+    
+      let obj = document.getElementById(elementId);
+      let timer = setInterval(function() {
+        current += increment;
+        obj.innerHTML = current + "+";
+        if (current == end) {
+            clearInterval(timer);
+        }
+      }, stepTime);
+    }
+
+    window.onload = function() {
+      let totalDuration = 3000; // 3 seconds for all to finish
+      animateNumber("inProgress", 0, 25, totalDuration);        // 25+ count slower
+      animateNumber("completedProjects", 0, 3000, totalDuration); // 3000+ count faster
+      animateNumber("businessPartners", 0, 30, totalDuration);   // 30+ count medium
+    };
+
+
+  </script>
+</body>
+</html>

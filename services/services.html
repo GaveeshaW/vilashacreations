@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="../images/logo.png">
+  <title>Vilasha Creations</title>
+  <link rel="stylesheet" href="./services.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <nav>
+      <ul>
+        <a href="../index.html">
+          <li><img class="logo" src="../images/logo.png"></li>
+        </a>
+        <li><a href="../index.html">Home</a></li> <!-- Change this based on the active page -->
+        <li><a href="../aboutus/aboutus.html">About Us</a></li>
+        <li><a href=".services.html" class="active">Services</a></li>
+        <li><a href="../contactus/contactus.html">Contact Us</a></li>
+        <li><button class="quote-btn">Get a Quote</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- About Us Section -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <h3>We Offer A Range Of Services <br>To Meet Your Needs</h3>
+  
+    <div class="service-container">
+      <div class="service-box">
+        <img src="../images/shirt.png" class="shirt"> <!-- Tshirt Icon -->
+        <h4>COLOR SHADING</h4>
+        <p>We use raw materials to change <br>the colors which are different <br>between panels in the garments. <br>We can proudly say that we achieve <br>99.9% accuracy when it comes to <br>this service.</p>
+      </div>
+  
+      <div class="service-box">
+        <img src="../images/frock.png" class="frock"> <!-- Frock Icon -->
+        <h4>TONE CHANGES</h4>
+        <p>We can change the tones between <br>panels in garments without <br>compensating the quality of the <br>product. Contact us for more details <br>and we are confident that we can <br>do a good job for you!</p>
+      </div>
+  
+      <div class="service-box">
+        <img src="../images/shorts.png" class="shorts"> <!-- Skirt Icon -->
+        <h4>UNEVEN SHADES</h4>
+        <p>With a focus on detail, we meticulously <br>restore uniformity in shades across all <br>panels in the garment. Clients can <br>trust in our dedication to delivering <br>flawlessly consistent garments.</p>
+      </div>
+  
+      <div class="service-box">
+        <img src="../images/skirt.png" class="skirt"> <!-- Shorts Icon -->
+        <h4>CREASE MARKS</h4>
+        <p>We utilize advanced techniques to <br>eliminate crease marks from <br>garments, ensuring a seamless <br>finish across all panels. Our <br>commitment to quality ensures <br>consistently flawless results.</p>
+      </div>
+  
+      <div class="service-box">
+        <img src="../images/sock.png" class="sock"> <!-- Sock Icon -->
+        <h4>REMOVE DYE PATCHES</h4>
+        <p>We implement cutting-edge <br>techniques to remove dye patches <br>from garments ensuring a consistent <br>coloration throughout. We guarantee <br>impeccably restored garments free <br>from discolorations and dye patches.</p>
+      </div>
+  
+      <div class="service-box">
+        <img src="../images/blouse.png" class="blouse"> <!-- Blouse Icon -->
+        <h4>WHITE SPOTS</h4>
+        <p>Our dedication to quality extends to <br>the removal of white spots where <br>precision and attention to detail are <br>paramount. Utilizing specialized <br>methods, we ensure a pristine finish <br>on every garment.</p>
+      </div>
+    </div>
+  </section>  
+
+  <!-- Footer -->
+  <footer>
+    <p>Contact us at: Contact us at: vilashacreations@yahoo.com / 0777-373-004</p>
+    <p>&copy; 2024 Vilasha Creations. All rights reserved.</p>
+  </footer>
+  <!-- Modal for Get a Quote form -->
+  <div id="quoteForm" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Get a Quote</h2>
+      <form id="contact-form" class="contact-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Request:</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button class="submit-btn"type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    // Initialize EmailJS
+    // Initialize EmailJS with your user ID
+    emailjs.init("YRqPqyLoQOaSNrj7C"); // Replace with your actual EmailJS User ID
+
+    // Get the modal
+    var modal = document.getElementById("quoteForm");
+    var btn = document.querySelector(".quote-btn");
+    var span = document.getElementsByClassName("close")[0];
+
+    // Open modal when "Get a Quote" is clicked
+    btn.onclick = function() {
+      modal.style.display = "flex";
+    }
+
+    // Close modal when "x" is clicked
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // Close modal when clicking outside of it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    // Handle form submission and send data via EmailJS
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual values
+      emailjs.sendForm("service_mhecogd", "template_9vco5iv", this)
+        .then(function() {
+          alert('Your quote request has been sent!');
+          modal.style.display = "none"; // Close the modal on success
+        }, function(error) {
+          alert('Failed to send request. Please try again.');
+        });
+    });
+
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
+
+    window.addEventListener('scroll', function() {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+        if (scrollTop > lastScrollTop) {
+            // Scroll down - hide the header
+            header.style.top = "-75px";
+        } else {
+            // Scroll up - show the header
+            header.style.top = "0";
+        }
+        lastScrollTop = scrollTop;
+    });
+  </script>
+</body>
+</html>
